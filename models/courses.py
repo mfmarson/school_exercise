@@ -6,4 +6,4 @@ class Courses(Base, table=True):
     name: str
  
     def __repr__(self):
-        return f"<Courses{self.name!r}>"
+        return f"<Course {self.name!r}>"

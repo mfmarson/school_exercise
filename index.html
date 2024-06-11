@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>CRUD U Enrollment</h1>
+    <div id="students"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        console.log("DOM Ready!");
+        const response = await fetch("http://localhost:8000/students");
+        const students = await response.json();
+        console.log("STUDENTS???", students);
+        const studentsEl = document.querySelector("#students");
+
+        students.map((student) => {
+          const paragraph = document.createElement("p");
+          paragraph.innerText = student.name;
+          studentsEl.appendChild(paragraph);
+        });
+      });
+    </script>
+  </body>
+</html>
